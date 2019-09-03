@@ -7,24 +7,25 @@
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
+// import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
+// import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+// import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
-import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+// import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
-import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
+// import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
+// import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
@@ -33,43 +34,58 @@ export default class ClassicEditor extends ClassicEditorBase {}
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
-	UploadAdapter,
+	// UploadAdapter,
+	Alignment,
 	Autoformat,
 	Bold,
 	Italic,
-	BlockQuote,
-	CKFinder,
+	// BlockQuote,
+	// CKFinder,
 	EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
-	ImageUpload,
+	// ImageUpload,
 	Link,
 	List,
-	MediaEmbed,
+	// MediaEmbed,
 	Paragraph,
-	PasteFromOffice,
+	// PasteFromOffice,
 	Table,
 	TableToolbar
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
+	alignment: {
+		options: [ 'left', 'center', 'right' ]
+	},
+	heading: {
+		options: [
+			{ model: 'paragraph', title: '本文' },
+			{ model: 'heading1', view: 'h2', title: '見出し 1', class: 'ck-heading_heading1' },
+			{ model: 'heading2', view: 'h3', title: '見出し 2', class: 'ck-heading_heading2' },
+			{ model: 'textNote', view: {name: 'p', classes: ['text-note']}, title: '注釈テキスト'},
+		]
+	},
 	toolbar: {
 		items: [
 			'heading',
 			'|',
 			'bold',
-			'italic',
+			// 'italic',
 			'link',
+			'alignment',
+			'|',
 			'bulletedList',
 			'numberedList',
-			'imageUpload',
-			'blockQuote',
+			// 'imageUpload',
+			// 'blockQuote',
 			'insertTable',
-			'mediaEmbed',
+			// 'mediaEmbed',
+			'|',
 			'undo',
 			'redo'
 		]
@@ -90,5 +106,5 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'ja'
 };
