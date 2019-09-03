@@ -67,7 +67,7 @@ ClassicEditor.defaultConfig = {
 			{ model: 'paragraph', title: '本文' },
 			{ model: 'heading1', view: 'h2', title: '見出し 1', class: 'ck-heading_heading1' },
 			{ model: 'heading2', view: 'h3', title: '見出し 2', class: 'ck-heading_heading2' },
-			{ model: 'textNote', view: {name: 'p', classes: ['text-note']}, title: '注釈テキスト'},
+			{ model: 'textNote', view: { name: 'p', classes: [ 'text-note' ] }, title: '注釈テキスト' },
 		]
 	},
 	toolbar: {
